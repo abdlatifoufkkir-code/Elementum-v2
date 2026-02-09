@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+</head>
+<body>
+  <nav>
+    <div class="img">
+    <img src="element.png" width="100px">
+</div>
+<div class="links3">
+  <a href="périodique.html">Periodic Table</a>
+      <a href="ABOUT.html">About</a>
+</div>
+<div class="account">
+  <button type="" class="normal" onclick="location.href='login.html'">Log In</button>
+    <button type="" class="spybutton">Sign In</button>
+</div>
+   </nav>
+   <div class="bigone">
+    <div class="text">
+     <h1 class="typewriter">Discover elements like never before</h1></br><h5>A smart interface inspir<span>ed by modern</span> smart home systems, showcasing chemical properties, rarity, and global prices in a visually captivating way.<br>From learning to exploration, this is your new periodic table—crafted for the curious mind and the eye that loves beauty.</h5></p>
+    </div>
+    <div class="inputsearch">
+      <button type="submit" class="searchbutton" onclick="window.location.href='périodique.html'">Search</button>
+<input type="search" placeholder="Search for Element By name, symbol or atomic number">
+    </div>
+   </div>
+   <div class="background-video">
+  <video autoplay muted loop playsinline>
+    <source src="silver-surfer-black-silence.3840x2160.mp4" type="video/mp4">
+  </video>
+</div>
+   <style>
+    
+         html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+nav{
+  height: 100px;
+  background-color: transparent;
+  width: 70%;
+  border-radius: 50px;
+  justify-self: center;
+  margin: 0 0 70px 0;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+.bigone {
+  width: 80%;       
+  max-width: 800px;  
+  min-width: 300px;  
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.background-video {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.background-video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.text{
+  color: white;
+  text-align: center;
+}
+.text h1{
+margin: 0;
+}
+input{
+  width: 60%;
+  height: 100%;
+  background-color: transparent;
+outline: none; 
+color: rgb(187, 187, 187);
+padding: 0 5px 0 10px;
+flex: 1;
+border-radius: 20px;
+border: none;
+}
+.searchbutton{
+  padding: 15px 30px;
+  border-radius: 15px;
+  margin: 2px;
+  background-color: gray;
+  border: none;
+  color: rgb(255, 255, 255);
+}
+.inputsearch{
+justify-content: center;
+display: flex;
+width: 60%;
+height: 50px;
+align-self: center;
+flex-direction: row-reverse;
+align-items: center;
+border-radius: 20px;
+border: 2px solid rgb(90, 90, 90);
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); 
+  background: transparent;
+backdrop-filter: blur(5px); 
+}
+ .typewriter {
+    width: 30ch;               
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid #ffffff; 
+    color: #fff;
+
+    animation: typing 3s steps(28), caret 0.3s steps(1) infinite;
+  }
+
+  @keyframes typing {
+    from { width: 0; }
+    to   { width: 30ch; }
+  }
+
+  @keyframes caret {
+    50% { border-right-color: transparent; }
+  }
+
+  body { background:#ffffff; margin:0px; }
+  .links3{
+    display: flex;
+  justify-self: center;
+  gap: 50px;}
+.links3 a{
+color: rgb(255, 255, 255);
+font-family: cursive;
+text-decoration: none;          
+transition: all 0.5s ease;
+}
+ .links3 a:hover{
+  text-decoration: underline; 
+  color: grey;
+  text-decoration-color: grey;                  
+  transition: all 0.3s ease;
+
+ } 
+  .account{
+    display: flex;
+        gap: 15px;
+        }
+        .spybutton{
+          padding: 15px;
+          border-radius: 20px;
+          color: rgb(255, 255, 255);
+          background-color: transparent;
+          border: 2px solid white;
+          cursor: pointer;
+          transition: all 0.5s ease;
+        }
+         .spybutton:hover{
+        box-shadow: 0 -4px 6px rgb(55, 0, 255);
+        border: 2px solid rgb(55,0,255);
+                  transition: all 0.3s ease;
+
+         }
+        img{
+          margin-top: 5px;
+        }
+        .normal{
+            padding: 15px;
+          cursor: pointer;
+          border-radius: 20px;
+color: #fff;
+background: transparent;
+border: 2px solid  rgb(0, 0, 0);
+          transition: all 0.5s ease;
+
+        }
+        .normal:hover{
+          border: 2px solid rgb(255, 2, 2);
+                  box-shadow: 0 -4px 6px rgb(255, 2, 2); 
+                  transition: all 0.3s ease;
+
+        }
+        .typewriter{
+          font-size: 5vw;
+        }
+        h5{
+width: 500px;
+justify-self: center;
+font-size: 15px;
+color: rgb(170, 170, 170);
+  font-family: "Source Code Pro", monospace;
+  opacity: 0;               
+  animation: fadeIn 5s ease forwards;
+        }
+        @keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+        h1{
+          justify-self: center;
+            font-family: "Roboto", sans-serif;
+
+        }
+img{
+  margin-top: 10px;
+}
+
+   </style>
+</body>
+</html>

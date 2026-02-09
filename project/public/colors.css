@@ -1,0 +1,112 @@
+.transition-metal {
+   background-color: #d8e2dcaf;
+}
+.transition-metal:hover {
+ border-bottom: #ffffff 2px solid;
+}
+
+.post-transition {
+  background-color: #f0f032a2;
+}
+.post-transition:hover {
+   border-bottom:#f8f800 2px solid;
+
+}
+
+.nonmetal {
+   background-color: #a2d2ffaf;
+}
+.nonmetal:hover {
+ border-bottom:  #2b98ff 2px solid;
+
+}
+
+.noble-gas {
+ background-color: #caffbfaf;
+}
+.noble-gas:hover {
+   border-bottom: #56ff35 2px solid;
+
+}
+
+.alkali-metal {
+ background-color: #ffd6a5af;
+}
+.alkali-metal:hover {
+  border-bottom:  #ff8c00fa 2px solid;
+
+}
+
+.alkaline-earth {background-color: #ffadad9f;
+}
+.alkaline-earth:hover {
+  border-bottom: #ff0000 2px solid;
+
+}
+
+.metalloid {
+  background-color: #b6fcd1c0;
+}
+.metalloid:hover {
+  border-bottom: #00ff62 2px solid;
+
+}
+
+.halogen {
+  background-color: #beb2ffa4;
+}
+.halogen:hover {
+   border-bottom:#6e55ff 2px solid;
+
+}
+
+.lanthanide {
+ background-color: #53ebffaf;
+}
+.lanthanide:hover {
+   border-bottom: #00e1ff 2px solid;
+
+}
+.actinide{
+  background-color: rgba(144, 238, 144, 0.479);
+}
+.actinide:hover{
+  border-bottom: rgb(0, 255, 0) 2px solid;
+}
+/*BORDER COLORS FOR .backbutton*/
+.backbutton.transition-metal:hover {
+  border: 2px solid #a1a1a1;
+}
+
+.backbutton.post-transition:hover {
+  border: 2px solid #f8f800;
+}
+
+.backbutton.nonmetal:hover {
+  border: 2px solid #2b98ff;
+}
+
+.backbutton.noble-gas:hover {
+  border: 2px solid #56ff35;
+}
+
+.backbutton.alkali-metal:hover {
+  border: 2px solid #ff8c00fa;
+}
+
+.backbutton.alkaline-earth:hover {
+  border: 2px solid #ff0000;
+}
+
+.backbutton.metalloid:hover {
+  border: 2px solid #00ff62;
+}
+
+.backbutton.halogen:hover {
+  border: 2px solid #6e55ff;
+}
+
+.backbutton.lanthanide:hover {
+  border: 2px solid #00e1ff;
+}
+

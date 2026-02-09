@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dash Board</title>
+     <link rel="stylesheet" href="colors.css">
+<link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div class="dash"><h1>ELEMENT DASHBOARD</h1>
+        <button type="button" class="backbutton" onclick="window.location.href='périodique.html'"><</button>
+    </div>
+    <div class="bigmain">
+    <div class="mainbox1">
+        <div class="informations">
+            <div class="symbole">
+<span><h1 id="symbol"></h1></span>
+            </div>
+            <div class="full-info">
+<span class="span1">
+   <h2 id="name"></h2>
+</span>
+<span class="span2" id="group"></span>
+<div class="atomic-numbers">
+<span id="number"></span>
+<span id="mass"></span>
+</div>
+            </div>
+        </div>
+    </div>
+    
+<div class="container" id="container"></div>
+<div class="chart-section">
+    <div class="ppm">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-beaker w-4 h-4 text-cyan-400" data-fg-cpij33="2.29:2.8277:/components/element-details.tsx:104:13:4436:44:e:Beaker::::::BUJS"><path d="M4.5 3h15"></path><path d="M6 3v16a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V3"></path><path d="M6 14h12"></path></svg>
+    <h3 style="margin-bottom: 20px; font-family: 'Audiowide', sans-serif; color: #06b6d4;">Abundance Trend (ppm)</h3>
+    </div>
+    <div class="chart-wrapper">
+        <canvas id="abundanceChart"></canvas>
+        <div class="tooltip" id="tooltip">
+            <div id="tooltipYear" class="tooltip-year"></div>
+            <div id="tooltipValue" class="tooltip-value"></div>
+        </div>
+    </div>
+</div>
+<div class="circlepc">
+    <div class="svgglobal">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin w-4 h-4 text-blue-400" data-fg-cpij49="2.29:2.8277:/components/element-details.tsx:134:13:5864:44:e:MapPin::::::ECmr"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg>
+    <h3 style="margin-bottom: 20px; font-family: 'Audiowide', sans-serif; color: #06b6d4;">Global Distribution
+</h3>
+</div>
+<div class="gg" style="display: flex; align-items: flex-start; gap: 40px; ">
+<svg width="200" height="200" viewBox="0 0 300 300" class="svgcircle">
+  <g id="pie"></g>
+</svg>
+   <div id="legend" style="font-family: sans-serif;"></div>
+
+</div>
+</div>
+<div class="Commonuses">
+    <h3 style="margin-bottom: 30px; font-family: 'Audiowide', sans-serif; color: #06b6d4;">Common Uses</h3><div id="uses-container">
+        <div id="uses-list-container">
+</div>
+</div>
+</div>
+<div class="buttonsafety">
+    <div class="svgglobal">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="orange" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield w-4 h-4 text-orange-400" data-fg-cpij74="2.29:179.908:/components/element-details.tsx:187:13:8045:46:e:Shield::::::Dyv"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path></svg>
+    <h3 style="margin-bottom: 20px; font-family: 'Audiowide', sans-serif; color: #06b6d4;">Safety Information
+    </div>
+        <button type="button" onclick="window.location.href='fgfg.html'">
+             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield w-4 h-4 text-orange-400" data-fg-cpij74="2.29:179.908:/components/element-details.tsx:187:13:8045:46:e:Shield::::::Dyv"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path></svg>
+             Is it Safe? View Details
+
+        </button> 
+    
+</div>
+
+<div class="buttonsafety">
+    <div class="svgglobal">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="orange" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield w-4 h-4 text-orange-400" data-fg-cpij74="2.29:179.908:/components/element-details.tsx:187:13:8045:46:e:Shield::::::Dyv"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path></svg>
+    <h3 style="margin-bottom: 20px; font-family: 'Audiowide', sans-serif; color: #06b6d4;">Safety Information
+    </div>
+        <button type="button" onclick="location.href='/couponds'" style="background-color: rgba(5, 255, 5, 0.363); border: 1px solid rgb(0, 255, 0);">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-beaker w-4 h-4" data-fg-cpij85="2.29:271.924:/components/element-details.tsx:210:13:9448:30:e:Beaker::::::DPKC"><path d="M4.5 3h15"></path><path d="M6 3v16a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V3"></path><path d="M6 14h12"></path></svg>
+             View Couponds
+
+        </button> 
+    
+</div>
+</div>
+    <style>
+        ::placeholder{
+color: #afafaf;
+font-size: 15px;
+font-weight: 550;
+        }
+       #uses-list-container {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 12px;
+}
+        .buttonsafety button{
+                        border: solid 1px #ff8904;
+  font-family: "Roboto", sans-serif;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  background-color: #ff6d7436;
+  width: 90%;
+  cursor: pointer;
+  padding: 10px 0;
+  justify-self: center;
+  margin: 20px;
+  border-radius: 15px;
+  font-weight: 900;
+  font-size: 16px;
+  color: white;
+  gap: 10px;
+  translate: all 0.5s ease;
+        }
+        .buttonsafety button:hover{
+              transform: scale(1.05);
+  translate: all 0.6s ease;
+
+        }
+        .buttonsafety{
+            margin: 0 20px 20px 20px;
+            border-radius: 15px;
+                                    border: 1px rgba(194, 194, 255, 0.425) solid;
+
+        }
+
+        .Commonuses{
+            margin: 0px 20px 20px 20px;
+            border-radius: 15px;
+            padding: 0 20px 20px 20px;
+                        border: 1px rgba(194, 194, 255, 0.425) solid;
+box-sizing: border-box;
+        }
+        .Commonuses span{
+            border: 1px solid rgba(0, 102, 255, 0.767);
+            padding: 5px 12px;
+            border-radius: 20px;
+            text-align: center;
+            background-color: #007ef35d;
+            color: #53eafd;
+           flex-direction: row;               
+        }
+        .svgcircle{
+            width: 50%;
+        }
+        .svgglobal{
+              flex-direction: row;
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+    gap: 5px;
+}
+        
+ .circlepc{
+                margin: 0px 20px 20px 20px;
+            border-radius: 15px;
+            border: 1px rgba(194, 194, 255, 0.425) solid;
+ }
+
+
+          .chart-section{
+            border: 1px rgba(194, 194, 255, 0.425) solid;
+            margin: 0px 20px 20px 20px;
+            border-radius: 15px;
+          }  
+
+.ppm{
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+    gap: 5px;
+}
+
+        .tooltip {
+            position: absolute;
+            background: rgba(15, 30, 53, 0.95);
+            border: 1px solid #06b6d4;
+            border-radius: 8px;
+            padding: 12px;
+            font-size: 13px;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.2s, transform 0.2s;
+            z-index: 10;
+            backdrop-filter: blur(8px);
+            text-align: center;
+            transform: translate(-20%, -100%); 
+        }
+        .tooltip.show { opacity: 1; transform: translate(-50%, -120%); }
+        .tooltip-year { color: #94a3b8; margin-bottom: 4px; font-weight: bold; }
+        .tooltip-value { color: #06b6d4; font-weight: 800; font-size: 16px; }
+        svg{
+            color: #00d3f3;
+        }
+       html, body{
+padding: 0;            
+height: auto;
+            margin: 0;
+                        color: white;
+                        background-color: black;
+        }
+        body{
+                          padding: 10px 50px 50px 50px;
+                          overflow-x: hidden;
+        }
+        .dash{
+            display: flex;
+            flex-direction: row-reverse;
+            margin:  0 0 20px 0;
+  border: rgba(194, 194, 255, 0.425) 1px solid;
+            border-radius: 50px;
+            padding: 6px;
+            backdrop-filter: blur(10px);
+            color: rgb(255, 255, 255);
+            justify-content: space-between;
+        }
+   h1{
+          color: rgb(255, 255, 255);
+          margin: auto;
+            font-family: "Audiowide", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+
+        }
+    .backbutton{
+          border-radius: 50px;
+          padding: 13px 17px;
+          font-size: 15px;
+          font-weight: 700;
+          text-align: center;
+          outline: none;
+          background-color: rgba(255, 255, 255, 0.89);
+          cursor: pointer;
+background-color: aliceblue;
+            border: transparent 2px solid;
+
+        }
+     
+        .bigmain{
+  border: rgba(194, 194, 255, 0.425) 1px solid;
+            border-radius: 20px;
+            width: 100%; max-width: 100%; box-sizing: border-box; 
+  font-family: "Roboto", sans-serif;
+font-weight: 50px;
+        }
+        .mainbox1{
+
+            min-height: 10em;
+border-top-right-radius: 20px;
+border-top-left-radius: 20px;
+border-bottom: transparent 2px solid;
+            align-items: center;
+            display: flex;
+            max-width: 100%;
+            padding: 0 30px 0 30px;
+        }
+        .informations{
+            margin: 0 30px;
+            flex-direction: row;
+            display: flex;
+            max-width: 100%;
+            height: auto;
+                        gap: 25px;
+                       box-sizing: border-box;
+                                   flex-wrap: wrap;
+
+        }
+        .symbole{
+              border: rgba(194, 194, 255, 0.425) 1px solid;
+
+width: max-content;
+padding: 14px 18px;
+margin: 20px 10px;
+            display: flex;
+border-radius: 15px;
+        }
+        .symbole span{
+            text-align: center;
+            display: flex;
+            font-size: larger;
+            
+        }
+     
+        .full-info{
+             flex-direction: column;
+             display: flex;
+ }
+        .atomic-numbers{
+            display: flex;
+            flex-direction: row;
+            text-align: center;
+            align-items: center;
+            gap: 20px;
+            margin-top: 15px;
+        }
+         .span1 h2{
+margin: 15px 0px;
+    }
+    .atomic-numbers span{
+          border: rgba(194, 194, 255, 0.425) 1px solid;
+border-radius: 5px;
+padding: 4px 8px;
+background-color: rgba(187, 187, 187, 0.842);
+    }
+    span{
+                    width: max-content;
+
+    }
+    .meduimbox1{
+        border: solid 1px red;
+    }
+    .electron-confiq{
+                border: solid 1px red;
+width: 50%;
+margin: 24px;
+    }
+    .container {
+      display: grid;
+      gap: 20px;
+      padding: 24px;
+grid-template-columns: repeat(2, 1fr);
+width: 100%; max-width: 100%; box-sizing: border-box;
+        }
+    .property-box {
+      border-radius: 10px;
+      padding: 15px;
+  border: rgba(194, 194, 255, 0.425) 1px solid;
+
+    }
+    .property-title {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    @media (max-width: 700px) {
+  .container {
+    grid-template-columns: 1fr; 
+    
+  }
+  body{
+    padding: 0;
+  }
+    .chart-section{
+    margin: 0;
+    text-align: center;
+    border: none;
+  }
+  .svgcircle{
+    transform: none;
+  }
+  .circlepc{
+    margin: 0;
+    border: none;
+  }
+.Commonuses{
+  
+    border: none;
+}
+.buttonsafety{
+    border: none;
+}
+.bigmain{
+    border: none;
+}
+}
+
+.svgspan{
+  color: grey;
+}
+.property-box.chart-box {
+    grid-column: 1 / -1; 
+    min-height: 350px;
+    position: relative;
+}
+
+.chart-wrapper {
+    position: relative;
+    width: 100%;
+    height: 280px;
+    margin-top: 10px;
+}
+
+#abundanceChart {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.custom-tooltip {
+    position: absolute;
+    background: #0f1e35;
+    border: 1px solid #06b6d4;
+    border-radius: 8px;
+    padding: 8px;
+    font-size: 12px;
+    pointer-events: none;
+    opacity: 0;
+    z-index: 100;
+    text-align: center;
+    transform: translate(-50%, -110%);
+    transition: opacity 0.2s;
+}
+
+  </style>
+</head>
+<body>
+
+  <script>
+  
+  </script> 
+   <script src="elements.js"></script>
+    <script src="proprities.js"></script>
+</body>
+</html>
+    </style>
+  
+    <script>
+ const params = new URLSearchParams(window.location.search);
+const number = parseInt(params.get("number"));
+const el = elements.find(e => e.number === number);
+const dataArray = allAbundance[number] || [0, 0, 0, 0, 0, 0];
+const properties = allProperties[number];
+  const dataelements = elementData[number];
+const currentUses = elementUses[number]
+
+if(el){
+  document.getElementById("symbol").textContent = el.symbol;
+  document.getElementById("name").textContent = el.name;
+  document.getElementById("group").textContent = el.group;
+  document.getElementById("number").textContent = "No. " + el.number;
+  document.getElementById("mass").textContent = el.mass + " u";
+document.querySelector(".buttonsafety button").onclick = () => {
+    window.location.href = `fgfg.html?number=${el.number}`;
+};
+
+  document.querySelector(".mainbox1").classList.add(el.group);
+  document.querySelector(".backbutton").classList.add(el.group)
+if (el.number >= 95) {
+    const title = document.querySelector(".ppm h3");
+    title.textContent = "Synthetic Element (No Natural Abundance)";
+    
+    title.style.color = "#fb923c"; 
+
+    
+
+    const chartWrapper = document.querySelector(".chart-wrapper");
+    if (chartWrapper) {
+        chartWrapper.style.display = "none"; 
+    }
+    
+}
+}
+
+if (properties) {
+    const container = document.getElementById("container");
+    container.innerHTML = "";
+
+    properties.forEach(prop => {
+        if (Array.isArray(prop.value) || prop.title === "Abundance") {
+            return; 
+        }
+        // ---------------------------
+
+        const box = document.createElement("div");
+        box.className = "property-box";
+
+        const titleWrapper = document.createElement("div");
+        titleWrapper.className = "property-title";
+        titleWrapper.style.display = "flex";
+        titleWrapper.style.alignItems = "center";
+        titleWrapper.style.gap = "8px";
+
+        const titleText = document.createElement("span");
+        titleText.textContent = prop.title;
+        titleText.id = "span-title";
+
+        if (prop.title === "Electron Config") {
+            const svgIcon = document.createElement("span");
+            svgIcon.className = "svgspan";
+            svgIcon.style.color = "grey";
+            svgIcon.innerHTML = `
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-atom w-4 h-4 text-cyan-400"><circle cx="12" cy="12" r="1"></circle><path d="M20.2 20.2c2.04-2.03.02-7.36-4.5-11.9-4.54-4.52-9.87-6.54-11.9-4.5-2.04 2.03-.02 7.36 4.5 11.9 4.54 4.52 9.87 6.54 11.9 4.5Z"></path><path d="M15.7 15.7c4.52-4.54 6.54-9.87 4.5-11.9-2.03-2.04-7.36-.02-11.9 4.5-4.52 4.54-6.54 9.87-4.5 11.9 2.03 2.04 7.36.02 11.9-4.5Z"></path></svg>`;
+            titleWrapper.appendChild(svgIcon);
+        }
+
+        if (prop.title === "Melting Point") {
+            const svgIcon = document.createElement("span");
+            svgIcon.innerHTML = `
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-thermometer" style="color:cyan">
+            <path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z"></path></svg>`;
+            titleWrapper.appendChild(svgIcon);
+        }
+
+        if (prop.title === "Price") {
+            const svgIcon = document.createElement("span");
+            svgIcon.innerHTML = `
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-dollar-sign w-4 h-4 text-cyan-400"><line x1="12" x2="12" y1="2" y2="22"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>`;
+            titleWrapper.appendChild(svgIcon);
+        }
+
+        if (prop.title === "Density") {
+            const svgIcon = document.createElement("span");
+            svgIcon.innerHTML = `
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-weight w-4 h-4 text-cyan-400"><circle cx="12" cy="5" r="3"></circle><path d="M6.5 8a2 2 0 0 0-1.905 1.46L2.1 18.5A2 2 0 0 0 4 21h16a2 2 0 0 0 1.925-2.54L19.4 9.5A2 2 0 0 0 17.48 8Z"></path></svg>`;
+            titleWrapper.appendChild(svgIcon);
+        }
+
+        if (prop.title === "Boiling Point") {
+            const svgIcon = document.createElement("span");
+            svgIcon.innerHTML = `
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-thermometer w-4 h-4 text-cyan-400"><path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z"></path></svg>`;
+            titleWrapper.appendChild(svgIcon);
+        }
+
+        if (prop.title === "Discovered") {
+            const svgIcon = document.createElement("span");
+            svgIcon.innerHTML = `
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar w-4 h-4 text-cyan-400"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M3 10h18"></path></svg>`;
+            titleWrapper.appendChild(svgIcon);
+        }
+
+        titleWrapper.appendChild(titleText);
+
+        const value = document.createElement("div");
+        value.textContent = prop.value;
+
+        box.appendChild(titleWrapper);
+        box.appendChild(value);
+        container.appendChild(box);
+    });
+}
+
+
+ const canvas = document.getElementById('abundanceChart');
+        const ctx = canvas.getContext('2d');
+        const tooltip = document.getElementById('tooltip');
+        
+
+const years = ['2015', '2017', '2019', '2021', '2023', '2025'];
+
+const chartData = years.map((y, i) => ({
+    year: y,
+    value: dataArray[i]
+}));
+        let points = [];
+        let padding, w, h, maxVal, minVal, range;
+
+        function draw(mouseX = null) {
+            const rect = canvas.parentElement.getBoundingClientRect();
+            canvas.width = rect.width;
+            canvas.height = rect.height;
+            
+            padding = { top: 40, right: 40, bottom: 50, left: 80 };
+            w = canvas.width - padding.left - padding.right;
+            h = canvas.height - padding.top - padding.bottom;
+            
+            maxVal = Math.max(...chartData.map(d => d.value)) * 1.05;
+            minVal = Math.min(...chartData.map(d => d.value)) * 0.95;
+            range = maxVal - minVal;
+
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.1)';
+            ctx.lineWidth = 1;
+            for(let i=0; i<=5; i++) {
+                const y = padding.top + (h/5)*i;
+                ctx.beginPath();
+                ctx.moveTo(padding.left, y);
+                ctx.lineTo(canvas.width - padding.right, y);
+                ctx.stroke();
+
+                const val = maxVal - (range/5)*i;
+                ctx.fillStyle = '#64748b';
+                ctx.font = '12px sans-serif';
+                ctx.textAlign = 'right';
+let displayValue;
+
+if (val > 0 && val < 0.0001) {
+    displayValue = val.toExponential(1).replace('e', 'x10^');
+} 
+else if (Math.abs(val) < 0.000000001) {
+    displayValue = "0";
+}
+else {
+    if (range > 10) {
+        displayValue = Math.round(val).toLocaleString(); 
+    } 
+    else if (range <= 10 && range > 0.1) {
+        displayValue = val.toFixed(1);
+    }
+    else {
+        displayValue = parseFloat(val.toFixed(5)).toString();
+    }
+}
+
+ctx.fillText(displayValue, padding.left - 15, y + 5);
+            }
+
+            points = chartData.map((d, i) => ({
+                x: padding.left + (w / (chartData.length - 1)) * i,
+                y: padding.top + h - ((d.value - minVal) / range) * h,
+                data: d
+            }));
+
+            const grad = ctx.createLinearGradient(0, padding.top, 0, h + padding.top);
+            grad.addColorStop(0, 'rgba(6, 182, 212, 0.25)');
+            grad.addColorStop(1, 'rgba(6, 182, 212, 0)');
+            ctx.fillStyle = grad;
+            ctx.beginPath();
+            ctx.moveTo(points[0].x, padding.top + h);
+            points.forEach(p => ctx.lineTo(p.x, p.y));
+            ctx.lineTo(points[points.length-1].x, padding.top + h);
+            ctx.fill();
+
+            ctx.strokeStyle = '#06b6d4';
+            ctx.lineWidth = 4;
+            ctx.lineCap = 'round';
+            ctx.lineJoin = 'round';
+            ctx.beginPath();
+            points.forEach((p, i) => i === 0 ? ctx.moveTo(p.x, p.y) : ctx.lineTo(p.x, p.y));
+            ctx.stroke();
+
+            points.forEach(p => {
+                ctx.fillStyle = 'rgba(6, 182, 212, 0.2)';
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, 10, 0, Math.PI*2);
+                ctx.fill();
+                
+                ctx.fillStyle = '#ffffff';
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, 5, 0, Math.PI*2);
+                ctx.fill();
+                ctx.strokeStyle = '#06b6d4';
+                ctx.lineWidth = 3;
+                ctx.stroke();
+            });
+
+            ctx.fillStyle = '#94a3b8';
+            ctx.textAlign = 'center';
+            ctx.font = 'bold 12px sans-serif';
+            points.forEach(p => {
+                ctx.fillText(p.data.year, p.x, padding.top + h + 30);
+            });
+        }
+
+        canvas.addEventListener('mousemove', (e) => {
+            const r = canvas.getBoundingClientRect();
+            const mx = e.clientX - r.left;
+            
+            let closest = points.reduce((prev, curr) => {
+                return (Math.abs(curr.x - mx) < Math.abs(prev.x - mx) ? curr : prev);
+            });
+
+            const distanceX = Math.abs(mx - closest.x);
+
+            if(distanceX < 60) {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                draw(); 
+
+                ctx.setLineDash([5, 5]);
+                ctx.strokeStyle = 'rgba(148, 163, 184, 0.6)';
+                ctx.lineWidth = 1;
+                ctx.beginPath();
+                ctx.moveTo(closest.x, padding.top);
+                ctx.lineTo(closest.x, padding.top + h);
+                ctx.stroke();
+                ctx.setLineDash([]);
+
+                ctx.fillStyle = '#ffffff';
+                ctx.beginPath();
+                ctx.arc(closest.x, closest.y, 7, 0, Math.PI*2);
+                ctx.fill();
+                ctx.strokeStyle = '#06b6d4';
+                ctx.lineWidth = 3;
+                ctx.stroke();
+
+                tooltip.classList.add('show');
+                tooltip.style.left = closest.x + 'px';
+                tooltip.style.top = closest.y + 'px';
+                document.getElementById('tooltipYear').textContent = "Year " + closest.data.year;
+                document.getElementById('tooltipValue').textContent = closest.data.value.toString() + " ppm";
+            } else {
+                tooltip.classList.remove('show');
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                draw();
+            }
+        });
+
+        canvas.addEventListener('mouseleave', () => {
+            tooltip.classList.remove('show');
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            draw();
+        });
+
+window.onload = () => {
+    if (typeof draw === 'function') draw(); 
+    if (typeof renderProductionCharts === 'function') renderProductionCharts(number);
+};
+
+
+
+
+const fixcolors = ["#06b6d4", "#3b82f6", "#8b5cf6"];
+  function drawPieChart(data) {
+    const pieGroup = document.getElementById("pie");
+    pieGroup.innerHTML = ""; 
+    const total = data.reduce((sum, d) => sum + d.value, 0);
+    const outerRadius = 120;
+    const innerRadius = 70;
+    const centerX = 150, centerY = 150;
+    let startAngle = 0;
+
+    data.forEach((d ,i) => {
+        const sliceAngle = Math.min((d.value / total) * 2 * Math.PI, 2 * Math.PI - 0.0001);
+      const endAngle = startAngle + sliceAngle;
+
+      const x1 = centerX + outerRadius * Math.cos(startAngle);
+      const y1 = centerY + outerRadius * Math.sin(startAngle);
+      const x2 = centerX + outerRadius * Math.cos(endAngle);
+      const y2 = centerY + outerRadius * Math.sin(endAngle);
+
+      const x3 = centerX + innerRadius * Math.cos(endAngle);
+      const y3 = centerY + innerRadius * Math.sin(endAngle);
+      const x4 = centerX + innerRadius * Math.cos(startAngle);
+      const y4 = centerY + innerRadius * Math.sin(startAngle);
+
+      const largeArc = sliceAngle > Math.PI ? 1 : 0;
+
+      const pathData = `
+        M ${x1},${y1}
+        A ${outerRadius},${outerRadius} 0 ${largeArc} 1 ${x2},${y2}
+        L ${x3},${y3}
+        A ${innerRadius},${innerRadius} 0 ${largeArc} 0 ${x4},${y4}
+        Z
+      `;
+
+      const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+      path.setAttribute("d", pathData);
+      path.setAttribute("fill", fixcolors[i % fixcolors.length]);
+      pieGroup.appendChild(path);
+
+
+      startAngle += sliceAngle;
+    });
+  }
+
+  if (dataelements) {
+    drawPieChart(dataelements);
+  } else {
+    console.log("Error '404' this page not found");
+  }
+
+
+
+
+
+
+
+
+function renderLegend(data) {
+  const legend = document.getElementById("legend");
+      legend.style.alignSelf = "center";
+      legend.style.fontFamily = "'Roboto', sans-serif";
+;
+
+  legend.innerHTML = "";
+
+  data.forEach((d, i) => {
+    const color = fixcolors[i % fixcolors.length];
+    const item = document.createElement("div");
+    item.style.display = "flex";
+    item.style.alignItems = "center";
+    item.style.marginBottom = "10px";
+
+    const dot = document.createElement("div");
+    dot.style.width = "14px";
+    dot.style.height = "14px";
+    dot.style.borderRadius = "50%";
+    dot.style.backgroundColor = color;
+    dot.style.marginRight = "10px";
+    dot.style.fontFamily = "'Audiowide', sans-serif";
+
+
+
+    const label = document.createElement("span");
+    label.textContent = d.name;
+
+    item.appendChild(dot);
+    item.appendChild(label);
+    legend.appendChild(item);
+  });
+}
+
+drawPieChart(dataelements);
+renderLegend(dataelements);
+    const usesList = document.getElementById("uses-list-container");
+
+if (usesList) {
+    usesList.innerHTML = "";
+    
+    currentUses.forEach(text => {
+        const item = document.createElement("span");
+       item.textContent = text;
+        usesList.appendChild(item);
+    });
+}
+
+
+
+</script>
+</body>
+</html>

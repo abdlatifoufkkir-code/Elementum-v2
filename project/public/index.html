@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <title>Global Chemical Intelligence | Pro Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://3Dmol.org/build/3Dmol-min.js"></script>
+    <style>
+        :root {
+            --bg-deep: #0b1120;
+            --card-bg: #161e2e;
+            --accent-cyan: #0ea5e9;
+            --text-white: #f8fafc;
+            --text-dim: #94a3b8;
+            --danger: #ef4444;
+            --safe: #10b981;
+            --warning: #fbbf24;
+            --border-color: #1e293b;
+        }
+
+        body { background: var(--bg-deep); color: var(--text-white); font-family: 'Segoe UI', sans-serif; margin: 0; padding: 20px; }
+        .container { max-width: 1100px; margin: 0 auto; }
+
+        .search-engine {
+            background: var(--card-bg); padding: 25px; border-radius: 15px; border: 1px solid var(--border-color);
+            display: flex; gap: 15px; margin-bottom: 30px; box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+        input {
+            flex: 1; background: #0b1120; border: 2px solid #334155; padding: 15px;
+            border-radius: 12px; color: white; font-size: 1.1rem; outline: none;
+        }
+        button {
+            background: var(--accent-cyan); color: white; border: none; padding: 0 30px;
+            border-radius: 12px; font-weight: bold; cursor: pointer;
+        }
+
+        .main-header { flex-wrap: wrap; border-radius: 20px; padding: 20px; margin-bottom: 25px; display: flex; justify-content: space-between; align-items: center; }
+        .symbol { font-size: 3.5rem; font-weight: 900; color: var(--accent-cyan); flex-wrap: wrap; }
+        .compound-info { gap: 15px; display: flex; flex-direction: column; flex-wrap: wrap; }
+        .compound-info h1 { font-size: 2.2rem; margin: 0; }
+        .badge { padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; width: max-content; }
+
+        .section-title { margin: 35px 0 15px; font-size: 1.2rem; display: flex; align-items: center; gap: 10px; color: var(--text-white); border-left: 4px solid var(--accent-cyan); padding-left: 10px; }
+        
+        .rect-grid { 
+            display: grid; 
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 15px; 
+            margin-bottom: 30px; 
+        }
+
+        .rect-card {
+            background: rgba(22, 30, 46, 0.6);
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            transition: 0.3s;
+        }
+        
+        .rect-card:hover { border-color: var(--accent-cyan); background: var(--card-bg); transform: translateY(-2px); }
+
+        .rect-label { 
+            font-size: 0.75rem; 
+            text-transform: uppercase; 
+            color: var(--text-dim); 
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .rect-value { 
+            font-size: 1.1rem; 
+            font-weight: bold; 
+            color: var(--accent-cyan); 
+            word-break: break-word;
+        }
+
+        .loader { text-align: center; padding: 50px; font-size: 1.5rem; color: var(--accent-cyan); }
+        img { max-width: 100%; height: auto; border-radius: 15px; background: white; padding: 10px; }
+      @media (max-width: 700px) {
+        .Structure {
+        grid-template-columns: 1fr !important; 
+    }
+    #mol-3d-viewer {
+        height: 350px !important; 
+    }
+      }
+    </style>
+</head>
+<body>
+<script src="https://3Dmol.org/build/3Dmol-min.js"></script>
+<div class="container">
+    <div class="search-engine">
+        <input type="text" id="userInput" placeholder="Search by Compound Name...">
+        <button onclick="globalSearch()"><i class="fas fa-microscope"></i> ANALYZE</button>
+    </div>
+    <div id="results">
+        <div class="loader">Enter compound name to generate pro dashboard.</div>
+    </div>
+</div>
+<script src="elements.js"></script>
+<script>
+async function globalSearch() {
+    const query = document.getElementById('userInput').value.trim();
+    if(!query) return;
+
+    const resultsDiv = document.getElementById('results');
+
+    const localElement = elements.find(el => 
+        el.symbol.toLowerCase() === query.toLowerCase() || 
+        el.name.toLowerCase() === query.toLowerCase()
+    );
+
+  if (localElement) {
+        resultsDiv.innerHTML = `
+            <div style="background: var(--card-bg); padding: 30px; border-radius: 15px; border: 1px solid var(--safe); text-align: center; margin-top: 20px;">
+                <i class="fas fa-check-circle" style="font-size: 3rem; color: var(--safe); margin-bottom: 15px; display: block;"></i>
+                <h2 style="margin: 0 0 10px 0;">Item Found in Periodic Table!</h2>
+                <p style="color: var(--text-dim); margin-bottom: 20px;">We found "${localElement.name}" within your local element database.</p>
+                <a href="périodique.html" style="background: var(--safe); color: white; padding: 12px 25px; border-radius: 10px; text-decoration: none; font-weight: bold; display: inline-block;">
+                    <i class="fas fa-arrow-right"></i> Go to Periodic Table
+                </a>
+            </div>
+        `;
+        return; 
+    }
+    resultsDiv.innerHTML = '<div class="loader"><i class="fas fa-atom fa-spin"></i> Searching PubChem Database...</div>';
+
+    try {
+        const response = await fetch(`/api/compound/${query}`);
+        const data = await response.json();
+        renderDashboard(data);
+    } catch (e) {
+        resultsDiv.innerHTML = `<div class="loader" style="color:var(--danger)">Compound not found in local or global database.</div>`;
+    }
+}
+function renderDashboard(data) {
+    const p = data.properties;
+    const s = data.details;
+
+    const isIon = (p.Charge !== 0 && p.Charge !== undefined);
+    const findDeep = (titleList) => {
+        let found = "Not Available";
+        const search = (arr) => {
+            if(!arr) return;
+            for(let item of arr) {
+                if(titleList.includes(item.TOCHeading) && item.Information) {
+                    let rawText = item.Information[0].Value.StringWithMarkup[0].String;
+                    let cleanedText = rawText.replace(/\s*\([^)]*\)/g, "").trim();
+
+                    if(titleList.includes('Physical Description') || titleList.includes('State')) {
+                        const lowerText = cleanedText.toLowerCase();
+                        if (lowerText.includes("gas") || lowerText.includes("vapor")) found = "Gas";
+                        else if (lowerText.includes("liquid")) found = "Liquid";
+                        else if (lowerText.includes("solid") || lowerText.includes("powder") || lowerText.includes("crystal")) found = "Solid";
+                        else found = cleanedText.split('.')[0];
+                    } else { 
+                        found = cleanedText; 
+                    }
+                    return; 
+                } else if(item.Section) search(item.Section);
+            }
+        };
+        search(s);
+        return found;
+    };
+
+const healthAdvice = findDeep(['Hazard Statements', 'GHS Classification', 'Signal']);
+const toxicElements = ['chlorine', 'fluorine', 'bromine', 'acid', 'cyanide', 'arsenic'];
+
+let statusColor = "#10b981", statusText = "SAFE", bgGradient = "linear-gradient(135deg, #064e3b 0%, #065f46 100%)";
+
+const checkText = healthAdvice.toLowerCase();
+const compoundName = p.Title.toLowerCase();
+
+if (
+    checkText.includes("danger") || 
+    checkText.includes("fatal") || 
+    checkText.includes("toxic") ||
+    toxicElements.some(el => compoundName.includes(el))
+) {
+    statusColor = "#ef4444"; 
+    statusText = "DANGER"; 
+    bgGradient = "linear-gradient(135deg, #450a0a 0%, #7f1d1d 100%)";
+} else if (checkText.includes("warning") || checkText.includes("harmful") || checkText.includes("irritant")) {
+    statusColor = "#fbbf24"; 
+    statusText = "WARNING"; 
+    bgGradient = "linear-gradient(135deg, #92400e 0%, #b45309 100%)";
+}
+    document.getElementById('results').innerHTML = `
+        <div class="main-header" style="background: ${bgGradient}; border: 2px solid ${statusColor};">
+            <div class="compound-info">
+                <span class="badge" style="background: ${statusColor}33; color: ${statusColor}; border: 1px solid ${statusColor};">${statusText} ANALYSIS</span>
+                <h1>${p.Title}</h1>
+                <div style="color:var(--text-dim)">IUPAC: ${p.IUPACName || 'N/A'}</div>
+            </div>
+            <div class="symbol">${p.MolecularFormula}</div>
+        </div>
+<div id="physical-sections" style="display: ${isIon ? 'none' : 'block'};">
+        <h3 class="section-title"><i class="fas fa-eye"></i> Appearance & State</h3>
+        <div class="rect-grid">
+            <div class="rect-card"><div class="rect-label"><i class="fas fa-wind"></i> Physical State</div><div class="rect-value">${findDeep(['Physical Description', 'State'])}</div></div>
+            <div class="rect-card"><div class="rect-label"><i class="fas fa-tint"></i> Color / Form</div><div class="rect-value" style="color: #51a2ff;         text-transform: lowercase;">${findDeep(['Color/Form', 'Color'])}</div></div>
+            <div class="rect-card"><div class="rect-label"><i class="fas fa-snowflake"></i> Melting Point</div><div class="rect-value" style="color: #fb923c;">${findDeep(['Melting Point'])}</div></div>
+            <div class="rect-card"><div class="rect-label"><i class="fas fa-fire"></i> Boiling Point</div><div class="rect-value" style="color: #ef4444;">${findDeep(['Boiling Point'])}</div></div>
+        </div>
+</div>
+<div id="physical-sections" style="display: ${isIon ? 'none' : 'block'};">
+        <h3 class="section-title"><i class="fas fa-vial"></i> Chemical Behavior</h3>
+        <div class="rect-grid">
+            <div class="rect-card"><div class="rect-label">pKa (Acidity)</div><div class="rect-value">${findDeep(['pKa'])}</div></div>
+            <div class="rect-card"><div class="rect-label">pH Level</div><div class="rect-value">${p.Title.toLowerCase() === 'water' ? '7.0' : findDeep(['pH'])}</div></div>
+            <div class="rect-card"><div class="rect-label">Solubility</div><div class="rect-value" style="color: #a855f7;">${findDeep(['Solubility'])}</div></div>
+            <div class="rect-card"><div class="rect-label">Vapor Pressure</div><div class="rect-value">${findDeep(['Vapor Pressure'])}</div></div>
+        </div>
+</div>
+
+        <h3 class="section-title"><i class="fas fa-project-diagram"></i> Structural Details</h3>
+        <div class="rect-grid">
+            <div class="rect-card"><div class="rect-label">Total Charge</div><div class="rect-value">${p.Charge ?? '0'}</div></div>
+            <div class="rect-card"><div class="rect-label">Heavy Atom Count</div><div class="rect-value">${p.HeavyAtomCount ?? '0'}</div></div>
+            <div class="rect-card"><div class="rect-label">H-Bond Donors</div><div class="rect-value">${p.HBondDonorCount ?? '0'}</div></div>
+            <div class="rect-card"><div class="rect-label">H-Bond Acceptors</div><div class="rect-value">${p.HBondAcceptorCount ?? '0'}</div></div>
+        </div>
+
+        <h3 class="section-title"><i class="fas fa-balance-scale"></i> Quantitative Data</h3>
+        <div class="rect-grid">
+            <div class="rect-card"><div class="rect-label">Molecular Weight</div><div class="rect-value">${p.MolecularWeight || 'N/A'} g/mol</div></div>
+            <div class="rect-card"><div class="rect-label">Density</div><div class="rect-value">${findDeep(['Density'])}</div></div>
+        </div>
+
+        <div class="Structure" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
+            <div class="rect-card">
+                <h3 class="section-title" style="margin:20px; border:none;"><i class="fas fa-atom"></i> 2D Structure</h3>
+                <img src="https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/${data.cid}/PNG">
+            </div>
+            <div class="rect-card">
+                   <h3 class="section-title"><i class="fas fa-cube"></i> Interactive 3D Model</h3>
+    <div id="mol-3d-viewer" style="width: 100%; height: 100%; position: relative; background: #161e2e;"></div>
+            </div>
+        </div>
+        
+
+    `;
+    setTimeout(() => {
+    const viewer = $3Dmol.createViewer($("#mol-3d-viewer"), { backgroundColor: '#161e2e' });
+    const sdfUrl = `https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/${data.cid}/SDF?record_type=3d`;
+    
+    $.get(sdfUrl, function(sdfData) {
+        viewer.addModel(sdfData, "sdf");
+        viewer.setStyle({}, { sphere: { scale: 0.3 }, stick: { radius: 0.15 } });
+        
+        viewer.zoomTo();viewer.render();
+       
+    }).fail(function() {
+        $("#mol-3d-viewer").html('<div style="text-align:center;padding-top:200px;color:var(--text-dim)">3D Not Available.</div>');
+    });
+}, 100);
+
+}
+
+</script>
+</body>
+</html>

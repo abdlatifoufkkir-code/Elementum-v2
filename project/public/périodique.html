@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Samrt periodic table</title>
+  <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+
+</head>
+<body>
+ 
+   <div class="dash"><h1>ELEMENT DASHBOARD</h1>
+        <button type="button" onclick="window.location.href='calmai.html'"><</button>
+    </div>
+    <div class="inputs">
+      <input type="search" placeholder="Search elements by name, symbol, or atomic number">
+      <select class="bg-slate-900/50 border border-slate-800/50 rounded-xl pl-12 pr-4 py-3 text-white focus:outline-none focus:border-cyan-500/50 focus:ring-2 focus:ring-cyan-500/20 transition-all appearance-none cursor-pointer min-w-[200px]" data-fg-bxfb2="2.23:2.1133:/components/filters.tsx:14:7:511:603:e:select"><option value="all" data-fg-bxfb4="2.23:2.1133:/components/filters.tsx:20:11:982:104:e:option">All Elements</option><option value="alkali-metal" data-fg-bxfb4="2.23:2.1133:/components/filters.tsx:20:11:982:104:e:option">Alkali Metals</option><option value="alkaline-earth" data-fg-bxfb4="2.23:2.1133:/components/filters.tsx:20:11:982:104:e:option">Alkaline Earth</option><option value="transition-metal" data-fg-bxfb4="2.23:2.1133:/components/filters.tsx:20:11:982:104:e:option">Transition Metals</option><option value="post-transition" data-fg-bxfb4="2.23:2.1133:/components/filters.tsx:20:11:982:104:e:option">Post-transition</option><option value="metalloid" data-fg-bxfb4="2.23:2.1133:/components/filters.tsx:20:11:982:104:e:option">Metalloids</option><option value="nonmetal" data-fg-bxfb4="2.23:2.1133:/components/filters.tsx:20:11:982:104:e:option">Nonmetals</option><option value="halogen" data-fg-bxfb4="2.23:2.1133:/components/filters.tsx:20:11:982:104:e:option">Halogens</option><option value="noble-gas" data-fg-bxfb4="2.23:2.1133:/components/filters.tsx:20:11:982:104:e:option">Noble Gases</option><option value="lanthanide" data-fg-bxfb4="2.23:2.1133:/components/filters.tsx:20:11:982:104:e:option">Lanthanides</option><option value="actinide" data-fg-bxfb4="2.23:2.1133:/components/filters.tsx:20:11:982:104:e:option">Actinides</option></select>
+    </div>
+    <div class="bigone">
+      <div class="titles">
+        <h2>Elements</h2>
+        <h4>24 found</h4>
+      </div>
+  <div class="periodic-table" id="table">
+  </div>
+</div>
+
+  <script src="script.js"></script>
+  <style>
+            html, body {
+  margin: 0;
+  padding: 0;
+
+}
+    body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #292525;
+  margin: 0;
+  padding: 0px 50px 50px 50px;
+  text-align: center;
+  background-image: url('chimie2.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;  
+    font-family: "Roboto", sans-serif;
+
+}
+.bigone{
+   border: rgba(194, 194, 255, 0.425) 1px solid;
+   border-radius: 20px;
+   padding: 10px 25px 25px 25px;
+   margin-top: 25px;
+   backdrop-filter: blur(10px);
+}
+.titles{
+  color: oklch(70.7% 0.165 254.624);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+
+
+.periodic-table {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 15px;
+  justify-content: center;
+flex-direction: row;
+box-sizing: border-box;
+}
+.inputs{
+              display: flex;
+flex-direction: column;
+gap: 15px;
+}
+.element {
+  background-color: #a1a1a1;
+  border-radius: 15px;
+  padding: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+  cursor: pointer;
+}
+
+.element:hover {
+  transform: scale(1.1);
+  
+}
+@media (max-width: 1190px) { 
+  .periodic-table { 
+    grid-template-columns: repeat(3, 1fr);  }
+ 
+  }
+.element .number {
+  font-size: 0.8em;
+  color: #555;
+
+}
+
+@media (max-width: 480px) { .periodic-table { grid-template-columns:repeat(2, 1fr); }
+   body{
+padding: 0;
+    }
+ }
+.element .symbol {
+  font-size: 1.8em;
+  font-weight: bold;
+  color: #ffffff;
+  transition: transform 0.2s;
+
+}
+
+@media (max-width: 355px) { 
+  .periodic-table { 
+    grid-template-columns: repeat(2, 1fr); 
+  
+  } 
+body{
+  padding: 0;
+}
+}
+
+.element .symbol:hover{
+      transform: scale(1.05);
+
+}
+.element .name {
+  font-size: 0.9em;
+  color: #ffffff;
+}
+
+.element .mass {
+  font-size: 0.8em;
+  color: #666;
+}
+        .dash{
+            display: flex;
+            flex-direction: row-reverse;
+            margin: 10px 0 30px 0;
+border-radius: 50px;
+padding: 6px;
+backdrop-filter: blur(10px);
+color: rgb(255, 255, 255);
+justify-content: space-between;
+  border: rgba(194, 194, 255, 0.425) 1px solid;
+
+        }
+        h1{
+          color: white;
+        margin: auto;
+  font-family: "Audiowide", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+        }
+        button{
+          border-radius: 50px;
+          padding: 13px 17px;
+          font-size: 15px;
+          font-weight: 700;
+          text-align: center;
+        }
+.inputs input{
+  border-radius: 20px;
+  padding: 15px;
+  font-size: 15px;
+  border: rgba(194, 194, 255, 0.425) 1px solid;
+ outline: transparent;
+background: transparent;
+color: rgb(255, 255, 255);
+box-sizing: border-box;
+  transition: all 0.3s ease;
+
+}
+.inputs input:focus,
+.inputs select:focus{
+outline: 0.5px rgba(86, 86, 247, 0.63) solid;
+  transition: all 0.6s ease;
+
+}
+::placeholder{
+  color: rgb(218, 218, 218);
+}
+.inputs select{
+  border-radius: 20px;
+  padding: 15px;
+  background: transparent;
+  color: rgb(255, 255, 255);
+    border: rgba(194, 194, 255, 0.425) 1px solid;
+width: 200px;
+outline: transparent;
+padding-left: 40px;
+}
+.inputs select option{
+  color: black;
+  background: rgba(160, 160, 160, 0.603);
+  border-radius: 15px;
+}
+.transition-metal { background-color: #d8e2dcaf; }
+.transition-metal:hover { background-color: #ced4da; }
+.post-transition { background-color: #f0f032a2; }
+.post-transition:hover { background-color: #f0f032; }
+.nonmetal { background-color: #a2d2ffaf;}
+.noble-gas { background-color: #caffbfaf; }
+.alkali-metal { background-color: #ffd6a5af; }
+.alkaline-earth { background-color: #ffadad9f; }
+.metalloid { background-color: #b6fcd1c0; }
+.halogen { background-color: #beb2ffa4;}
+.nonmetal:hover { background-color: #7dbffd;}
+.noble-gas:hover { background-color: #b4fca6; }
+.alkali-metal:hover { background-color: #ffc783; }
+.alkaline-earth:hover { background-color: #ff9191; }
+.metalloid:hover { background-color: #6affa5; }
+.halogen:hover { background-color: #a798fa;}
+.lanthanide { background-color: #53ebffaf; }
+.lanthanide:hover { background-color: #3fe9fff3; }
+.actinide{
+  background-color: rgba(144, 238, 144, 0.65);
+}
+.actinide:hover{
+  background-color: rgba(0, 255, 0, 0.65);
+}
+  </style>
+      <script src="elements.js"></script>
+
+  <script>
+
+
+const container = document.getElementById("table");
+const searchInput = document.querySelector("input[type='search']");
+const selectInput = document.querySelector("select");
+const titleCount = document.querySelector(".titles h4");
+
+function renderElements(filtered) {
+  container.innerHTML = "";
+  filtered.forEach(el => {
+    const div = document.createElement("div");
+    div.className = `element ${el.group}`;
+    div.innerHTML = `
+      <div class="number">${el.number}</div>
+      <div class="symbol">${el.symbol}</div>
+      <div class="name">${el.name}</div>
+      <div class="mass">${el.mass}</div>
+    `;
+    container.appendChild(div);
+  });
+  titleCount.textContent = `${filtered.length} found`;
+}
+
+renderElements(elements);
+
+searchInput.addEventListener("input", () => {
+  const query = searchInput.value.trim().toLowerCase();
+  const filtered = elements.filter(el =>
+    el.name.toLowerCase().includes(query) ||
+    el.symbol.toLowerCase().includes(query) ||
+    el.number.toString() === query
+  );
+  renderElements(filtered);
+});
+
+selectInput.addEventListener("change", () => {
+  const selectedGroup = selectInput.value;
+  let filtered;
+  if (selectedGroup === "all") {
+    filtered = elements;
+  } else {
+    filtered = elements.filter(el => el.group === selectedGroup);
+  }
+  renderElements(filtered);
+});
+function renderElements(filtered) {
+  container.innerHTML = "";
+  filtered.forEach(el => {
+    const div = document.createElement("div");
+    div.className = `element ${el.group}`;
+    div.innerHTML = `
+      <div class="number">${el.number}</div>
+      <div class="symbol">${el.symbol}</div>
+      <div class="name">${el.name}</div>
+      <div class="mass">${el.mass}</div>
+    `;
+
+    div.addEventListener("click", () => {
+      window.location.href = `mainpage.html?number=${el.number}`;
+    });
+
+    container.appendChild(div);
+  });
+  titleCount.textContent = `${filtered.length} found`;
+}
+
+</script>
+
+</body>
+</html>
