@@ -247,23 +247,45 @@ if (
         
 
     `;
-    setTimeout(() => {
-    const viewer = $3Dmol.createViewer($("#mol-3d-viewer"), { backgroundColor: '#161e2e' });
+let viewer; 
+let isSpinning = true; 
+
+setTimeout(() => {
+    viewer = $3Dmol.createViewer($("#mol-3d-viewer"), { backgroundColor: '#161e2e' });
     const sdfUrl = `https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/${data.cid}/SDF?record_type=3d`;
     
     $.get(sdfUrl, function(sdfData) {
         viewer.addModel(sdfData, "sdf");
-        viewer.setStyle({}, { sphere: { scale: 0.3 }, stick: { radius: 0.15 } });
         
-        viewer.zoomTo();viewer.render();
+        viewer.setStyle({}, { 
+            sphere: { scale: 0.3, outline: { color: 'black', width: 0.05 } }, 
+            stick: { radius: 0.15, outline: { color: 'black', width: 0.05 } } 
+        });
+        
+        viewer.zoomTo();
+        viewer.spin("y", 0.5);
+        viewer.render();
        
     }).fail(function() {
         $("#mol-3d-viewer").html('<div style="text-align:center;padding-top:200px;color:var(--text-dim)">3D Not Available.</div>');
     });
 }, 100);
 
+$(document).on('keydown', function(e) {
+    if (e.key.toLowerCase() === 's') {
+            if (isSpinning) {
+                viewer.spin(false); 
+            } else {
+                viewer.spin("y", 0.5); 
+            }
+            isSpinning = !isSpinning; 
+        
+    }
+});
+
 }
 
 </script>
 </body>
+
 </html>
