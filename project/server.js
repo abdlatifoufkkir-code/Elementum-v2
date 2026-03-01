@@ -8,7 +8,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.get('/couponds', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+    res.sendFile(path.join(__dirname, 'public', 'coupons.html'));
 });
 
 app.get('/periodic-table', (req, res) => {
@@ -19,7 +19,7 @@ app.get('/safty-informations', (req, res) => {
     res.sendFile(path.join(__dirname, '/public', 'mainpage.html'));
 });
 app.get('/home', (req, res) => {
-    res.sendFile(path.join(__dirname, '/public', 'calmai.html'));
+    res.sendFile(path.join(__dirname, '/public', 'index.html'));
 });
 
 
@@ -53,5 +53,6 @@ app.get('/api/compound/:name', async (req, res) => {
         res.status(500).json({ error: error.message });
     }
 });
+
 
 app.listen(PORT, () => console.log(`🚀 Server ready at http://localhost:${PORT}`));
