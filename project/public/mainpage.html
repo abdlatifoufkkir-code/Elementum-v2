@@ -5,93 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dash Board</title>
      <link rel="stylesheet" href="colors.css">
-<link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
-
-</head>
-<body>
-    <div class="dash"><h1>ELEMENT DASHBOARD</h1>
-        <button type="button" class="backbutton" onclick="window.location.href='périodique.html'"><</button>
-    </div>
-    <div class="bigmain">
-    <div class="mainbox1">
-        <div class="informations">
-            <div class="symbole">
-<span><h1 id="symbol"></h1></span>
-            </div>
-            <div class="full-info">
-<span class="span1">
-   <h2 id="name"></h2>
-</span>
-<span class="span2" id="group"></span>
-<div class="atomic-numbers">
-<span id="number"></span>
-<span id="mass"></span>
-</div>
-            </div>
-        </div>
-    </div>
-    
-<div class="container" id="container"></div>
-<div class="chart-section">
-    <div class="ppm">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-beaker w-4 h-4 text-cyan-400" data-fg-cpij33="2.29:2.8277:/components/element-details.tsx:104:13:4436:44:e:Beaker::::::BUJS"><path d="M4.5 3h15"></path><path d="M6 3v16a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V3"></path><path d="M6 14h12"></path></svg>
-    <h3 style="margin-bottom: 20px; font-family: 'Audiowide', sans-serif; color: #06b6d4;">Abundance Trend (ppm)</h3>
-    </div>
-    <div class="chart-wrapper">
-        <canvas id="abundanceChart"></canvas>
-        <div class="tooltip" id="tooltip">
-            <div id="tooltipYear" class="tooltip-year"></div>
-            <div id="tooltipValue" class="tooltip-value"></div>
-        </div>
-    </div>
-</div>
-<div class="circlepc">
-    <div class="svgglobal">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin w-4 h-4 text-blue-400" data-fg-cpij49="2.29:2.8277:/components/element-details.tsx:134:13:5864:44:e:MapPin::::::ECmr"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg>
-    <h3 style="margin-bottom: 20px; font-family: 'Audiowide', sans-serif; color: #06b6d4;">Global Distribution
-</h3>
-</div>
-<div class="gg" style="display: flex; align-items: flex-start; gap: 40px; ">
-<svg width="200" height="200" viewBox="0 0 300 300" class="svgcircle">
-  <g id="pie"></g>
-</svg>
-   <div id="legend" style="font-family: sans-serif;"></div>
-
-</div>
-</div>
-<div class="Commonuses">
-    <h3 style="margin-bottom: 30px; font-family: 'Audiowide', sans-serif; color: #06b6d4;">Common Uses</h3><div id="uses-container">
-        <div id="uses-list-container">
-</div>
-</div>
-</div>
-<div class="buttonsafety">
-    <div class="svgglobal">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="orange" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield w-4 h-4 text-orange-400" data-fg-cpij74="2.29:179.908:/components/element-details.tsx:187:13:8045:46:e:Shield::::::Dyv"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path></svg>
-    <h3 style="margin-bottom: 20px; font-family: 'Audiowide', sans-serif; color: #06b6d4;">Safety Information
-    </div>
-        <button type="button" onclick="window.location.href='fgfg.html'">
-             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield w-4 h-4 text-orange-400" data-fg-cpij74="2.29:179.908:/components/element-details.tsx:187:13:8045:46:e:Shield::::::Dyv"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path></svg>
-             Is it Safe? View Details
-
-        </button> 
-    
-</div>
-
-<div class="buttonsafety">
-    <div class="svgglobal">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="orange" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield w-4 h-4 text-orange-400" data-fg-cpij74="2.29:179.908:/components/element-details.tsx:187:13:8045:46:e:Shield::::::Dyv"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path></svg>
-    <h3 style="margin-bottom: 20px; font-family: 'Audiowide', sans-serif; color: #06b6d4;">Safety Information
-    </div>
-        <button type="button" onclick="location.href='/couponds'" style="background-color: rgba(5, 255, 5, 0.363); border: 1px solid rgb(0, 255, 0);">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-beaker w-4 h-4" data-fg-cpij85="2.29:271.924:/components/element-details.tsx:210:13:9448:30:e:Beaker::::::DPKC"><path d="M4.5 3h15"></path><path d="M6 3v16a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V3"></path><path d="M6 14h12"></path></svg>
-             View Couponds
-
-        </button> 
-    
-</div>
-</div>
-    <style>
+     <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+     <style>
         ::placeholder{
 color: #afafaf;
 font-size: 15px;
@@ -421,6 +336,91 @@ width: 100%; max-width: 100%; box-sizing: border-box;
 </body>
 </html>
     </style>
+</head>
+<body>
+    <div class="dash"><h1>ELEMENT DASHBOARD</h1>
+        <button type="button" class="backbutton" onclick="window.location.href='périodique.html'"><</button>
+    </div>
+    <div class="bigmain">
+    <div class="mainbox1">
+        <div class="informations">
+            <div class="symbole">
+<span><h1 id="symbol"></h1></span>
+            </div>
+            <div class="full-info">
+<span class="span1">
+   <h2 id="name"></h2>
+</span>
+<span class="span2" id="group"></span>
+<div class="atomic-numbers">
+<span id="number"></span>
+<span id="mass"></span>
+</div>
+            </div>
+        </div>
+    </div>
+    
+<div class="container" id="container"></div>
+<div class="chart-section">
+    <div class="ppm">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-beaker w-4 h-4 text-cyan-400" data-fg-cpij33="2.29:2.8277:/components/element-details.tsx:104:13:4436:44:e:Beaker::::::BUJS"><path d="M4.5 3h15"></path><path d="M6 3v16a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V3"></path><path d="M6 14h12"></path></svg>
+    <h3 style="margin-bottom: 20px; font-family: 'Audiowide', sans-serif; color: #06b6d4;">Abundance Trend (ppm)</h3>
+    </div>
+    <div class="chart-wrapper">
+        <canvas id="abundanceChart"></canvas>
+        <div class="tooltip" id="tooltip">
+            <div id="tooltipYear" class="tooltip-year"></div>
+            <div id="tooltipValue" class="tooltip-value"></div>
+        </div>
+    </div>
+</div>
+<div class="circlepc">
+    <div class="svgglobal">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin w-4 h-4 text-blue-400" data-fg-cpij49="2.29:2.8277:/components/element-details.tsx:134:13:5864:44:e:MapPin::::::ECmr"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg>
+    <h3 style="margin-bottom: 20px; font-family: 'Audiowide', sans-serif; color: #06b6d4;">Global Distribution
+</h3>
+</div>
+<div class="gg" style="display: flex; align-items: flex-start; gap: 40px; ">
+<svg width="200" height="200" viewBox="0 0 300 300" class="svgcircle">
+  <g id="pie"></g>
+</svg>
+   <div id="legend" style="font-family: sans-serif;"></div>
+
+</div>
+</div>
+<div class="Commonuses">
+    <h3 style="margin-bottom: 30px; font-family: 'Audiowide', sans-serif; color: #06b6d4;">Common Uses</h3><div id="uses-container">
+        <div id="uses-list-container">
+</div>
+</div>
+</div>
+<div class="buttonsafety">
+    <div class="svgglobal">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="orange" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield w-4 h-4 text-orange-400" data-fg-cpij74="2.29:179.908:/components/element-details.tsx:187:13:8045:46:e:Shield::::::Dyv"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path></svg>
+    <h3 style="margin-bottom: 20px; font-family: 'Audiowide', sans-serif; color: #06b6d4;">Safety Information
+    </div>
+        <button type="button" onclick="window.location.href='fgfg.html'">
+             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield w-4 h-4 text-orange-400" data-fg-cpij74="2.29:179.908:/components/element-details.tsx:187:13:8045:46:e:Shield::::::Dyv"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path></svg>
+             Is it Safe? View Details
+
+        </button> 
+    
+</div>
+
+<div class="buttonsafety">
+    <div class="svgglobal">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="orange" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield w-4 h-4 text-orange-400" data-fg-cpij74="2.29:179.908:/components/element-details.tsx:187:13:8045:46:e:Shield::::::Dyv"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path></svg>
+    <h3 style="margin-bottom: 20px; font-family: 'Audiowide', sans-serif; color: #06b6d4;">Safety Information
+    </div>
+        <button type="button" onclick="location.href='/couponds'" style="background-color: rgba(5, 255, 5, 0.363); border: 1px solid rgb(0, 255, 0);">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-beaker w-4 h-4" data-fg-cpij85="2.29:271.924:/components/element-details.tsx:210:13:9448:30:e:Beaker::::::DPKC"><path d="M4.5 3h15"></path><path d="M6 3v16a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V3"></path><path d="M6 14h12"></path></svg>
+             View Couponds
+
+        </button> 
+    
+</div>
+</div>
+    
   
     <script>
  const params = new URLSearchParams(window.location.search);
@@ -815,4 +815,5 @@ if (usesList) {
 
 </script>
 </body>
+
 </html>
