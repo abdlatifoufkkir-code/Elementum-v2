@@ -5,27 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Samrt periodic table</title>
   <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
-
-</head>
-<body>
- 
-   <div class="dash"><h1>ELEMENT DASHBOARD</h1>
-        <button type="button" onclick="window.location.href='calmai.html'"><</button>
-    </div>
-    <div class="inputs">
-      <input type="search" placeholder="Search elements by name, symbol, or atomic number">
-      <select class="bg-slate-900/50 border border-slate-800/50 rounded-xl pl-12 pr-4 py-3 text-white focus:outline-none focus:border-cyan-500/50 focus:ring-2 focus:ring-cyan-500/20 transition-all appearance-none cursor-pointer min-w-[200px]" data-fg-bxfb2="2.23:2.1133:/components/filters.tsx:14:7:511:603:e:select"><option value="all" data-fg-bxfb4="2.23:2.1133:/components/filters.tsx:20:11:982:104:e:option">All Elements</option><option value="alkali-metal" data-fg-bxfb4="2.23:2.1133:/components/filters.tsx:20:11:982:104:e:option">Alkali Metals</option><option value="alkaline-earth" data-fg-bxfb4="2.23:2.1133:/components/filters.tsx:20:11:982:104:e:option">Alkaline Earth</option><option value="transition-metal" data-fg-bxfb4="2.23:2.1133:/components/filters.tsx:20:11:982:104:e:option">Transition Metals</option><option value="post-transition" data-fg-bxfb4="2.23:2.1133:/components/filters.tsx:20:11:982:104:e:option">Post-transition</option><option value="metalloid" data-fg-bxfb4="2.23:2.1133:/components/filters.tsx:20:11:982:104:e:option">Metalloids</option><option value="nonmetal" data-fg-bxfb4="2.23:2.1133:/components/filters.tsx:20:11:982:104:e:option">Nonmetals</option><option value="halogen" data-fg-bxfb4="2.23:2.1133:/components/filters.tsx:20:11:982:104:e:option">Halogens</option><option value="noble-gas" data-fg-bxfb4="2.23:2.1133:/components/filters.tsx:20:11:982:104:e:option">Noble Gases</option><option value="lanthanide" data-fg-bxfb4="2.23:2.1133:/components/filters.tsx:20:11:982:104:e:option">Lanthanides</option><option value="actinide" data-fg-bxfb4="2.23:2.1133:/components/filters.tsx:20:11:982:104:e:option">Actinides</option></select>
-    </div>
-    <div class="bigone">
-      <div class="titles">
-        <h2>Elements</h2>
-        <h4>24 found</h4>
-      </div>
-  <div class="periodic-table" id="table">
-  </div>
-</div>
-
-  <script src="script.js"></script>
   <style>
             html, body {
   margin: 0;
@@ -221,6 +200,27 @@ padding-left: 40px;
   background-color: rgba(0, 255, 0, 0.65);
 }
   </style>
+</head>
+<body>
+ 
+   <div class="dash"><h1>ELEMENT DASHBOARD</h1>
+        <button type="button" onclick="window.location.href='calmai.html'"><</button>
+    </div>
+    <div class="inputs">
+      <input type="search" placeholder="Search elements by name, symbol, or atomic number">
+      <select class="bg-slate-900/50 border border-slate-800/50 rounded-xl pl-12 pr-4 py-3 text-white focus:outline-none focus:border-cyan-500/50 focus:ring-2 focus:ring-cyan-500/20 transition-all appearance-none cursor-pointer min-w-[200px]" data-fg-bxfb2="2.23:2.1133:/components/filters.tsx:14:7:511:603:e:select"><option value="all" data-fg-bxfb4="2.23:2.1133:/components/filters.tsx:20:11:982:104:e:option">All Elements</option><option value="alkali-metal" data-fg-bxfb4="2.23:2.1133:/components/filters.tsx:20:11:982:104:e:option">Alkali Metals</option><option value="alkaline-earth" data-fg-bxfb4="2.23:2.1133:/components/filters.tsx:20:11:982:104:e:option">Alkaline Earth</option><option value="transition-metal" data-fg-bxfb4="2.23:2.1133:/components/filters.tsx:20:11:982:104:e:option">Transition Metals</option><option value="post-transition" data-fg-bxfb4="2.23:2.1133:/components/filters.tsx:20:11:982:104:e:option">Post-transition</option><option value="metalloid" data-fg-bxfb4="2.23:2.1133:/components/filters.tsx:20:11:982:104:e:option">Metalloids</option><option value="nonmetal" data-fg-bxfb4="2.23:2.1133:/components/filters.tsx:20:11:982:104:e:option">Nonmetals</option><option value="halogen" data-fg-bxfb4="2.23:2.1133:/components/filters.tsx:20:11:982:104:e:option">Halogens</option><option value="noble-gas" data-fg-bxfb4="2.23:2.1133:/components/filters.tsx:20:11:982:104:e:option">Noble Gases</option><option value="lanthanide" data-fg-bxfb4="2.23:2.1133:/components/filters.tsx:20:11:982:104:e:option">Lanthanides</option><option value="actinide" data-fg-bxfb4="2.23:2.1133:/components/filters.tsx:20:11:982:104:e:option">Actinides</option></select>
+    </div>
+    <div class="bigone">
+      <div class="titles">
+        <h2>Elements</h2>
+        <h4>24 found</h4>
+      </div>
+  <div class="periodic-table" id="table">
+  </div>
+</div>
+
+  <script src="script.js"></script>
+
       <script src="elements.js"></script>
 
   <script>
@@ -294,3 +294,4 @@ function renderElements(filtered) {
 
 </body>
 </html>
+
