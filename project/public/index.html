@@ -195,7 +195,7 @@ margin: 0;
 
   setTimeout(() => {
     viewer = $3Dmol.createViewer("viewer");
-      viewer.setBackgroundColor(0x000000, 0); // أبيض + شفاف
+      viewer.setBackgroundColor(0x000000, 0);  
 
     $3Dmol.download("pdb:1CRN", viewer, {}, function() {
       viewer.setStyle({}, {
@@ -206,9 +206,8 @@ margin: 0;
       viewer.spin("y", 0.5);
       viewer.render();
     });
-  }, 500); // تأخير نصف ثانية مثلاً
-
-  // التحكم بالكيبورد
+  }, 500);
+  
   document.addEventListener('keydown', function(e) {
     if (e.key.toLowerCase() === 's') {
       if (isSpinning) {
@@ -219,10 +218,6 @@ margin: 0;
       isSpinning = !isSpinning; 
     }
   });
-
 </script>
-
-
-
 </body>
 </html>
